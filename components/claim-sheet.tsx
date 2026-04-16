@@ -16,7 +16,6 @@ const WALLETS = [
   { name: 'MEXC', logo: '/wallets/mexc.png' },
   { name: 'Coinbase', logo: '/wallets/coinbase.png' },
   { name: 'OKX', logo: '/wallets/okx.png' },
-  { name: 'WalletConnect', logo: '/wallets/walletconnect.png' },
   { name: 'Phantom', logo: '/Phantom.webp' },
 ]
 
