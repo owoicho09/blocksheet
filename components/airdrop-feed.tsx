@@ -6,7 +6,7 @@ import AirdropCard from './airdrop-card'
 const AIRDROPS = [
   {
     id: 'block',
-    name: 'BLOCK Token',
+    name: 'BLOCK',
     symbol: 'BLOCK',
     description: 'The foundational token powering the Blockstreet ecosystem',
     allocation: '100,000,000',
@@ -15,11 +15,11 @@ const AIRDROPS = [
     featured: true,
     about: 'BLOCK is the centerpiece of Blockstreet infrastructure. It powers governance, rewards, and ecosystem participation across our multichain platform. Early access is limited to verified community members.',
     eligibility: [
-      'Verified email and KYC completion',
+      'Verified wallet and KYC completion',
       'Minimum 0.5 ETH in wallet',
       'Active participation in community',
     ],
-    deadline: '2025-05-15',
+    deadline: '2026-05-15',
   },
   {
     id: 'usd1',
