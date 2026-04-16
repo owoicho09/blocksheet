@@ -29,12 +29,12 @@ export default function HeroSection() {
         <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold tracking-tight">
           <span className="block mb-2">Exclusive Early</span>
           <span className="bg-gradient-to-r from-primary via-secondary to-primary bg-clip-text text-transparent animate-shimmer">
-            Access to BLOCK
+            Access to Tokens
           </span>
         </h1>
 
         <p className="text-lg sm:text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed">
-          Join the future of finance. Get early access to curated token airdrops on Block, the premier Web3 infrastructure platform.
+          Join the future of finance. Get early access to curated token airdrops on Airdrop Hub, the premier Web3 infrastructure platform.
         </p>
 
         <div className="flex flex-col sm:flex-row gap-4 justify-center pt-4">

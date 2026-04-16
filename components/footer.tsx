@@ -38,7 +38,7 @@ export default function Footer() {
           {/* Brand Section */}
           <div className="space-y-4">
             <h3 className="text-2xl font-bold bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
-              BLOCK
+              Airdrop Hub
             </h3>
             <p className="text-muted-foreground max-w-md">
               Building enterprise-grade infrastructure for Web3. Bringing public-market discipline to blockchain execution.
@@ -116,7 +116,7 @@ export default function Footer() {
 
         {/* Bottom */}
         <div className="pt-8 border-t border-border flex flex-col sm:flex-row justify-between items-center gap-4 text-sm text-muted-foreground">
-          <p>© 2026 Block. All rights reserved.</p>
+          <p>© 2026 Airdrop Hub. All rights reserved.</p>
           <div className="flex gap-6">
             <a href="#" className="hover:text-primary transition-colors">Privacy Policy</a>
             <a href="#" className="hover:text-primary transition-colors">Terms of Service</a>

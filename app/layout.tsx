@@ -7,13 +7,13 @@ const _geist = Geist({ subsets: ["latin"] });
 const _geistMono = Geist_Mono({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: 'Block - Web3 Airdrop Platform | Claim BLOCK Tokens',
-  description: 'Access exclusive token airdrops on Block. Claim your BLOCK tokens and participate in the future of decentralized finance with enterprise-grade infrastructure.',
-  generator: 'BlockStreet',
+  title: 'Airdrop Hub - Web3 Airdrop Platform | Claim Tokens',
+  description: 'Access exclusive token airdrops on Airdrop Hub. Claim your tokens and participate in the future of decentralized finance with enterprise-grade infrastructure.',
+  generator: 'Airdrop Hub',
   metadataBase: new URL('https://blockstreet.xyz'),
   openGraph: {
-    title: 'Block - Web3 Airdrop Platform',
-    description: 'Exclusive early access to BLOCK token and curated airdrops',
+    title: 'Airdrop Hub - Web3 Airdrop Platform',
+    description: 'Exclusive early access to token and curated airdrops',
     url: 'https://blockstreet.xyz',
     type: 'website',
   },

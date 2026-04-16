@@ -94,7 +94,7 @@ export default function Navigation() {
           <div className="flex justify-between items-center">
             <div className="flex items-center gap-2">
               <div className="text-2xl font-bold bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
-                BLOCK
+                Airdrop Hub
               </div>
             </div>
 
