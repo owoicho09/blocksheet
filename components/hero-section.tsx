@@ -34,7 +34,7 @@ export default function HeroSection() {
         </h1>
 
         <p className="text-lg sm:text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed">
-          Join the future of finance. Get early access to curated token airdrops on Blockstreet, the premier Web3 infrastructure platform.
+          Join the future of finance. Get early access to curated token airdrops on Block, the premier Web3 infrastructure platform.
         </p>
 
         <div className="flex flex-col sm:flex-row gap-4 justify-center pt-4">
